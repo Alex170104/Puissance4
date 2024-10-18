@@ -12,6 +12,7 @@ using namespace std;
 
 class pion {
 private:
+    bool etat;
     string couleur ;
     tuple<int,int> coordonne;
 
@@ -24,26 +25,29 @@ public :
     tuple<int,int> getCoordonne(){
         return coordonne;
     }
+    void setCoordonne(int x, int y) {
+    coordonne =make_tuple(x, y);
+}
     int getX() {
         return get<0>(coordonne);
     }
     int getY() {
         return get<1>(coordonne);
     }
-    void setCoordonne(int x, int y) {
-        coordonne =make_tuple(x, y);
-    }
+
     void setX(int x) {
         get<0>(coordonne) = x;
     }
     void setY(int y) {
         get<1>(coordonne) = y;
     }
-
-
-    tuple<int, int> getCoordonne() const {
-        return coordonne;
+    bool getEtat() {
+        return etat;
     }
+    bool setEtat(bool nouvelEtat) {
+        etat=nouvelEtat;
+    }
+
 
 };
 
