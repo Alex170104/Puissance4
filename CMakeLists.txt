@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Puissance4 main.cpp
         Board.cpp
-        Board.h)
+        Board.h
+        pion.cpp
+        pion.h)

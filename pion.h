@@ -36,7 +36,7 @@ public :
 
 
     void setX(int x) {
-        std::get<0>(coordonne) = x;
+        get<0>(coordonne) = x;
     }
 
     void setY(int y) {
