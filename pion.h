@@ -33,12 +33,9 @@ public :
     void setCoordonne(int x, int y) {
         coordonne =make_tuple(x, y);
     }
-
-
     void setX(int x) {
-        std::get<0>(coordonne) = x;
+        get<0>(coordonne) = x;
     }
-
     void setY(int y) {
         get<1>(coordonne) = y;
     }
