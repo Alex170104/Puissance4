@@ -12,11 +12,11 @@ public:
     int getRows() const { return rows; }
     int getCols() const { return rows; }
     void display() const;
-    void putPion(int i, int j);
-    void checkAround(int i, int j);
-    int chooseCol(void) const;
+    void putPion(int i, int j, int player);
+    bool checkAround(int i, int j, int player);
+    int chooseCol() const;
     tuple<int, int> checkGravity(int i);
-    void win();
+    bool win(int player);
 
 private:
     int rows;

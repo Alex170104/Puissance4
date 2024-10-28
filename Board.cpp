@@ -23,16 +23,16 @@ void Board::display() const {
 
 tuple<int, int> Board::checkGravity(int i) {
     tuple<int, int> caseEmpty;
-    for (int j = 0; j < grid.size(); ++j) {
-        if (grid[i][j] == 0) {
+    for (int j = 0; j < getRows(); ++j) {
+        if (grid[j][i] == 0) {
             caseEmpty = make_tuple(i, j);
         }
     }
     return caseEmpty;
 }
 
-void Board::putPion(int i, int j) {
-    grid[j][i] = 1;
+void Board::putPion(int i, int j, int player) {
+    grid[j][i] = player;
 }
 
 int Board::chooseCol() const  {
@@ -45,28 +45,35 @@ int Board::chooseCol() const  {
     return num;
 }
 
-void Board::checkAround(int i, int j) {
+bool Board::checkAround(int i, int j, int player) {
     const int directions[8][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
     for (auto& dir : directions) {
+        int count = 1;
         int new_i = i + dir[0];
         int new_j = j + dir[1];
-        if (new_i >= 0 && new_i < getRows() && new_j >= 0 && new_j < getCols()) {
-            cout << "Checking cell: (" << new_i << ", " << new_j << ")" << endl;
-            if (grid[new_i][new_j] == 1) {
-                cout << "Alignement détecté" << endl;
-            } else {
-                cout << "Pas d'alignement" << endl;
+        while (new_i >= 0 && new_i < getRows() && new_j >= 0 && new_j < getCols() && grid[new_i][new_j] == player) {
+            ++count;
+            if (count == 4) {
+                return true;
             }
+            new_i += dir[0];
+            new_j += dir[1];
         }
     }
+    return false;
 }
 
-void Board::win() {
+bool Board::win(int player) {
     for (int i = 0; i < getRows(); ++i) {
         for (int j = 0; j < getCols(); ++j) {
-            if (grid[i][j] == 1) {
-                checkAround(i, j);
+            if (grid[i][j] == player) {
+                if (checkAround(i, j, player)) {
+                    cout << "Victoire" << endl;
+                    return true;
+                }
             }
         }
     }
+    cout << "Pas de victoire" << endl;
+    return false;
 }
