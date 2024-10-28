@@ -74,6 +74,5 @@ bool Board::win(int player) {
             }
         }
     }
-    cout << "Pas de victoire" << endl;
     return false;
 }

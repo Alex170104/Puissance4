@@ -10,7 +10,6 @@ int main() {
     while (!gameWon) {
         choose = board.chooseCol();
         auto [row, col] = board.checkGravity(choose);
-        cout << "Empty cell at: (" << row << ", " << col << ")" << endl;
         board.putPion(row, col, player);
         board.display();
         gameWon = board.win(player);
