@@ -8,11 +8,12 @@ using namespace std;
 
 class Board {
 public:
-    Board(int rows = 6, int cols = 7);
+    explicit Board(int rows = 6, int cols = 7);
     void display() const;
-    int getRows() const { return rows; }
-    int getCols() const { return cols; }
-    vector<vector<int>> getGrid() const { return grid; }
+    [[nodiscard]] int getRows() const { return rows; }
+    [[nodiscard]] int getCols() const { return cols; }
+    [[nodiscard]] vector<vector<int>>& getGrid() { return grid; }
+    void setCell(int x, int y, int value);
 
 private:
     int rows;

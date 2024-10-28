@@ -5,15 +5,21 @@
 #include "JEU.h"
 #include "Pion.h"
 #include <iostream>
+#include "Board.h"
 
 using namespace std;
 
-bool JEU::alignement(const Board& board) {
-    for (int i = 0; i < board.getCols(); ++i) {
-        for (int j = 0; i < board.getRows(); ++i) {
-            if (board.getGrid()[i][j] != 0) {
-                JEU::checkAround(board, i, j, );
-            }
+tuple<int, int> JEU::checkGravity(Board& board, int i) {
+    tuple<int, int> caseEmpty;
+    for (int j = 0; j < board.getRows(); ++j) {
+        if (board.getGrid()[i][j] == 0) {
+            caseEmpty = make_tuple(i, j);
         }
     }
+    return caseEmpty;
 }
+
+void JEU::putPion(Board& board, int i, int j) {
+    board.setCell(j, i, 1);
+}
+

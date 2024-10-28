@@ -9,7 +9,8 @@
 
 class JEU {
 public:
-    static bool alignement(const Board& board);
+    static tuple<int, int> checkGravity(Board &board, int i);
+    static void putPion(Board &board, int i, int j);
 };
 
 

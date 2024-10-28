@@ -7,4 +7,5 @@ add_executable(Puissance4 main.cpp
         Board.cpp
         Board.h
         pion.cpp
-        pion.h)
+        pion.h
+        JEU.cpp)
