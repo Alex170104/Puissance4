@@ -35,6 +35,16 @@ void Board::putPion(int i, int j) {
     grid[j][i] = 1;
 }
 
+int Board::chooseCol() const  {
+    int col = getCols();
+    int num;
+    do{
+        cout << "Choisissez une colonne: ";
+        cin >> num;
+    }while(num < 0 || num > col);
+    return num;
+}
+
 void Board::checkAround(int i, int j) {
     const int directions[8][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
     for (auto& dir : directions) {

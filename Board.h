@@ -14,6 +14,7 @@ public:
     void display() const;
     void putPion(int i, int j);
     void checkAround(int i, int j);
+    int chooseCol(void) const;
     tuple<int, int> checkGravity(int i);
     void win();
 

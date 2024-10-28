@@ -4,7 +4,8 @@
 int main() {
     Board board;
     board.display();
-    auto [row, col] = board.checkGravity(3);
+    int choose = board.chooseCol();
+    auto [row, col] = board.checkGravity(choose);
     cout << "Empty cell at: (" << row << ", " << col << ")" << endl;
     board.putPion(row, col);
     board.display();
