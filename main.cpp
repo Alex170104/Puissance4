@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Board.h"
+#include "raylib.h"
 
 int main() {
     int choose;
@@ -46,3 +47,4 @@ int main() {
 
     return 0;
 }
+
