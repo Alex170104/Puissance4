@@ -8,4 +8,4 @@ add_executable(Puissance4 main.cpp
         Board.h
         pion.cpp
         pion.h
-        JEU.cpp)
+)

@@ -8,17 +8,21 @@ using namespace std;
 
 class Board {
 public:
-    explicit Board(int rows = 6, int cols = 7);
+    explicit Board(int rows = 7, int cols = 7);
+    int getRows() const { return rows; }
+    int getCols() const { return rows; }
     void display() const;
-    [[nodiscard]] int getRows() const { return rows; }
-    [[nodiscard]] int getCols() const { return cols; }
-    [[nodiscard]] vector<vector<int>>& getGrid() { return grid; }
-    void setCell(int x, int y, int value);
+    void putPion(int i, int j);
+    void checkAround(int i, int j);
+    tuple<int, int> checkGravity(int i);
+    void win();
 
 private:
     int rows;
     int cols;
     vector<vector<int>> grid;
+
+
 };
 
 #endif //PUISSANCE4_BOARD_H
