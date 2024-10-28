@@ -15,6 +15,7 @@ public:
     void putPion(int i, int j, int player);
     bool checkAround(int i, int j, int player);
     int chooseCol() const;
+    int chooseColBot() const;
     tuple<int, int> checkGravity(int i);
     bool win(int player);
 
@@ -22,6 +23,7 @@ private:
     int rows;
     int cols;
     vector<vector<int>> grid;
+
 
 
 };

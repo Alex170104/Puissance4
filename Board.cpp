@@ -1,6 +1,5 @@
 // Board.cpp
 
-
 #include "Board.h"
 #include <iostream>
 
@@ -41,6 +40,14 @@ int Board::chooseCol() const  {
     do{
         cout << "Choisissez une colonne: ";
         cin >> num;
+    }while(num < 0 || num > col);
+    return num;
+}
+int Board::chooseColBot() const  {
+    int col = getCols();
+    int num;
+    do{
+        num = rand() % col;
     }while(num < 0 || num > col);
     return num;
 }
