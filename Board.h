@@ -8,9 +8,11 @@ using namespace std;
 
 class Board {
 public:
-    explicit Board(int rows = 7, int cols = 7);
+    explicit Board(int rows = 8, int cols = 9);
     int getRows() const { return rows; }
-    int getCols() const { return rows; }
+    int getCols() const { return cols; }
+    int getGrid(int i, int j) const { return grid[i][j]; }
+
     void display() const;
     void putPion(int i, int j, int player);
     bool checkAround(int i, int j, int player);
